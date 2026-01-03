@@ -70,10 +70,15 @@ const description = {
     "txpci": { "name": "PCI TX", "device_class": "data_rate", "unit": "MB/s" },
 };
 
+const fieldsToShow = ['gtemp', 'fb', 'pwr']
+
 function publishConfigs(client, gpus) {
     gpus.forEach(gpu => {
         const uuid = gpu.uuid;
         for (const [key, desc] of Object.entries(description)) {
+            if (fieldsToShow.length > 0 && !fieldsToShow.includes(key)) {
+                continue;
+            }
             const topic = `homeassistant/sensor/${uuid}_${key}/config`;
             const payload = {
                 "device": {
