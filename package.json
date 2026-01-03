@@ -1,0 +1,17 @@
+{
+  "name": "nvidia-smi2ha",
+  "version": "1.0.0",
+  "description": "This project is a Python script that sends Nvidia GPU metrics to Home Assistant. It parses the output of the `nvidia-smi` command and uses Home Assistant's MQTT auto-discovery feature to register all GPUs. The service file will automatically install a virtual environment and the required package before execution. No root access is required.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node nvidia-smi2ha.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mqtt": "^5.14.1"
+  }
+}
